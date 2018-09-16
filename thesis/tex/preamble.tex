@@ -1,0 +1,237 @@
+% L D'Agostino McGowan dissertation preamble
+% Adapted from L Samuels dissertation template
+% Adapted from Qi Liu's template
+
+\input{tex/params}
+
+\usepackage{alltt} % for knitr code output
+\usepackage{etoolbox} % for toggle
+\usepackage[left=1.5in,right=1in,top=1in,bottom=1in]{geometry}
+\usepackage{nomencl} % for the nomenclature (List of Abbreviations)
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{amsbsy,bm} 
+\usepackage{lmodern} % Latin modern fonts
+\usepackage[T1]{fontenc} % font encodings
+\usepackage{framed} % for knitr code output
+\usepackage{graphicx}
+\usepackage{multirow} % need this for table in Paper 1
+\usepackage[font=singlespacing]{caption}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage[table]{xcolor}
+\usepackage{float}
+\usepackage{colortbl} % allows coloring of individual cells
+\usepackage{natbib}
+\usepackage{mathtools} % allows split fractions
+\usepackage{indentfirst} % Indent first paragraph at beginning of section
+\usepackage{subfig} % This one is required by something else
+\usepackage[titletoc,title]{appendix}
+\usepackage[tocgraduated]{tocstyle} % This package is still in alpha, but we need it for VU
+\usepackage{array}
+\usepackage{listings} % Typeset source code listings using LATEX
+\usepackage{makeidx}
+\usepackage{booktabs}
+\usepackage[subfigure, titles]{tocloft} % lets us format TOC for VU
+\usepackage[nottoc,notlof,notlot]{tocbibind}
+\usepackage{pdflscape}
+\usepackage{placeins} % for \FloatBarrier
+\hypersetup{
+    bookmarksnumbered=false, % true means bookmarks in left window are numbered
+    bookmarksopen=false,     % true means only level 1 is displayed.
+    colorlinks=true,         % false: boxed links; true: colored links
+    linkcolor=black,          % color of internal links
+    citecolor=black,          
+    urlcolor=black,          
+    pdfstartview=FitH
+}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}% clear headers
+\fancyfoot{}% clear footers
+\renewcommand{\headrulewidth}{0pt}% eliminate horizontal line
+\fancyfoot[c]{\thepage}
+
+\urlstyle{same}
+\bibliographystyle{vandy_dissertation}
+\setcounter{secnumdepth}{7}
+\setcounter{tocdepth}{7}
+\captionsetup{font=footnotesize}
+\setcitestyle{citesep={;}, aysep={,}}
+
+\graphicspath{{paper1/figs/}{paper2/figs/}{paper3/figs/}}
+\DeclareGraphicsExtensions{.pdf,.jpeg,.png,.PNG,.eps,.tiff}
+
+\textwidth=6in \oddsidemargin=0.5in \topmargin=-0.5in
+\textheight=9in  % 9in must include page numbers
+\textfloatsep = 0.4in 
+
+\addtocontents{toc}{\vspace{0.4in} \protect \hfill Page\endgraf} 
+\addtocontents{lof}{\vspace{0.2in} \hspace{0.13in} \ Figure \protect \hfill Page\endgraf} 
+\addtocontents{lot}{\vspace{0.2in} \hspace{0.13in} \ Table \protect\hfill Page\endgraf}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%% Table of contents %%%%%%%%%%%%%%%%%
+\renewcommand{\contentsname}{TABLE OF CONTENTS}
+\renewcommand{\cftchapfont}{\normalfont}
+\renewcommand{\cftchappagefont}{\normalfont}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% List of figures %%%%%%%%%%%%%%%%%%
+\renewcommand{\listfigurename}{LIST OF FIGURES}
+\setlength{\cftbeforefigskip}{0.2in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% List of tables %%%%%%%%%%%%%%%%%%%
+\renewcommand{\listtablename}{LIST OF TABLES}
+\setlength{\cftbeforetabskip}{0.2in}
+
+%%%%%%%Configure List of Abbreviations%%%%%%%%%%%%
+\renewcommand{\nompreamble}{\vspace{0.25in}} % code after main title
+\makenomenclature
+\renewcommand{\nomname}{LIST OF ABBREVIATIONS}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% Bibliography %%%%%%%%%%%%%%%%%%%%
+\renewcommand{\bibname}{\texorpdfstring{{REFERENCES\vspace{10mm}}}{REFERENCES}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%% Chapter headings %%%%%%%%%%%%%%%%%%
+\makeatletter
+\def\@makechapterhead#1{
+  {\parindent \z@ \centering
+    \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+      \if@mainmatter
+        \MakeUppercase{\@chapapp}\space \thechapter
+        \par\nobreak
+        \vskip 20\p@
+      \fi
+    \fi
+    \interlinepenalty\@M
+    #1\par\nobreak
+    \vskip 40\p@
+  }}
+
+\def\@schapter#1{\if@twocolumn
+                   \@topnewpage[\@makeschapterhead{#1}]%
+                 \else
+                   \@makeschapterhead{#1}%
+                   \@afterheading
+                 \fi}
+
+\def\@makeschapterhead#1{
+  {\parindent \z@ \centering
+    \normalfont
+    \interlinepenalty\@M
+    #1\par\nobreak
+    \vskip 10\p@
+  }}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%% TOC line spacing %%%%%%%%%%%%%%%%%%
+\newlength{\li}\setlength{\li}{14.48pt}
+\newlength{\di}\setlength{\di}{-3.5mm}
+
+\def\@chapter[#1]#2{\ifnum \c@secnumdepth >\m@ne
+      \refstepcounter{chapter}%
+      \typeout{\@chapapp\space\thechapter.}%
+      \addcontentsline{toc}{chapter}{\numberline{\thechapter}#1}
+         %{\protect\numberline{\thechapter}\uppercase{#1}}%
+      \addtocontents{toc}{\protect\vspace{\li}}%
+  \else
+      %\addcontentsline{toc}{chapter}{\uppercase{#1}}%
+      \addcontentsline{toc}{chapter}{#1}
+      \addtocontents{toc}{\protect\vspace{\li}}%
+  \fi
+  \chaptermark{#1}%
+  \if@twocolumn
+      \@topnewpage[\@makechapterhead{\MakeUppercase{#2}}]%
+  \else
+      \@makechapterhead{\MakeUppercase{#2}}%
+      \@afterheading
+ \fi}
+
+
+\renewcommand\chapter{\addtocontents{toc}{\protect\addvspace{\li}}%
+  \if@openright\cleardoublepage\else\clearpage\fi
+  \thispagestyle{plain}%
+  \global\@topnum\z@
+  \@afterindentfalse
+  \secdef\@chapter\@schapter}
+
+\newdimen\@bls                              
+\@bls=\baselineskip
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%% Section headings %%%%%%%%%%%%%%%%%%
+\renewcommand\section{ \@startsection {section}{1}{\z@}%
+    %{-2\@bls}%
+    {2\@bls  plus .3\@bls minus .1\@bls}%
+    {0.1\@bls}%
+    {\centering\normalfont}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%% Sub-section headings %%%%%%%%%%%%%%%%
+\renewcommand\subsection{\@startsection {subsection}{2}{\z@}%
+    %{-2\@bls}%
+    {2\@bls  plus .3\@bls minus .1\@bls}%
+    {0.1\@bls}%
+    {\noindent\normalfont}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% Sub-sub-section headings %%%%%%%%%%%%%%
+\renewcommand\subsubsection{\@startsection {subsubsection}{3}{\z@}%
+    %{-1\@bls}%
+    {\@bls plus .2\@bls}%
+    %{-5pt}%
+    {0.1\@bls}%
+    %{\noindent\normalfont\bfseries}}
+    {\noindent\normalfont\itshape}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% TOC headings %%%%%%%%%%%%%%%%%%%
+\renewcommand{\@cftmaketoctitle}{
+  \chapter*{\contentsname}
+  \addcontentsline{toc}{chapter}{TABLE OF CONTENTS}} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% List of figures headings %%%%%%%%%%%%%%
+\renewcommand{\@cftmakeloftitle}{
+  \chapter*{\listfigurename}
+  Figure \hfill Page
+  \addcontentsline{toc}{chapter}{LIST OF FIGURES} } 
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% List of tables headings %%%%%%%%%%%%%%
+\renewcommand{\@cftmakelottitle}{
+  \chapter*{\listtablename}
+   Table \hfill Page
+   \addcontentsline{toc}{chapter}{LIST OF TABLES} }  
+
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setcounter{section}{-1}     
+
+% Define floats here
+\floatstyle{plain}
+\newfloat{Box}{h}{lob}
+\newcommand{\boxedtext}[3]{
+    \begin{Box} \caption{\small{#1}}
+    \hspace{1.cm}
+    \fbox{\begin{minipage}[c]{0.85\linewidth} 
+    
+    \small{#2}
+   
+   \end{minipage}}
+   
+   \label{#3}
+   \end{Box}
+}
+
+\let\mySpacing=\onehalfspacing

@@ -1,0 +1,126 @@
+\pagenumbering{alph}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%% Title Page %%%%%%%%%%%%%%%%%%%%
+\begin{titlepage}
+\thispagestyle{empty}\enlargethispage{\the\footskip}%
+\begin{center}
+    {\setstretch{1.66} {\maintitle}\par }%
+    \vskip.4in
+    By
+    \vskip .3in
+    {\myname}
+    \vskip .3in
+    
+    \begin{doublespace}
+    Dissertation\\
+    Submitted to the Faculty of the \\
+    Graduate School of Vanderbilt University \\
+    in partial fulfillment of the requirements \\
+    for the degree of \\ [.1in]
+    \end{doublespace}
+    
+    \MakeUppercase{DOCTOR OF PHILOSOPHY} \\[.1in]
+    in \\[.1in]
+    {Biostatistics} \\[.25in]
+    \mygraddate \\[.25in]
+    Nashville, Tennessee
+\end{center}
+\vskip .5in
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% Approved names %%%%%%%%%%%%%%%%%%
+\begin{center}
+\begin{doublespace}
+Approved:\\
+\Chair\\
+\Advisor \\
+\OtherInternalMember \\
+\ExternalMember \\
+\end{doublespace}
+\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% Uncomment for Signatures %%%%%%%%%%%%%%
+%Approved: \hskip 2.9in Date:\\[1.2em]
+% \hskip -0.24in Approved: \hskip 2.85in Date:\\[1.2em]
+% \rule{3.5in}{.5pt} \hskip 0.1in \rule{2in}{.5pt} \\[.01in]
+% \Chair \\[.14in]
+% \rule{3.5in}{.5pt} \hskip 0.1in \rule{2in}{.5pt}  \\[.01in]
+% \Advisor \\[.14in]
+% \rule{3.5in}{.5pt} \hskip 0.1in \rule{2in}{.5pt} \\[.01in]
+% \OtherInternalMember \\[.14in]
+% \rule{3.5in}{.5pt} \hskip 0.1in \rule{2in}{.5pt} \\[.01in]
+% \ExternalMember \\[.14in]
+% \\[.14in]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{titlepage}
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% Copyright page %%%%%%%%%%%%%%%%%%
+\thispagestyle{empty}%\enlargethispage{\the\footskip}%
+\vspace*{\fill}
+\begin{center}
+Copyright \copyright ~\mypubyear~by \myname\\
+All Rights Reserved
+\end{center}
+\vspace*{\fill}
+\clearpage
+
+
+\mySpacing
+\pagenumbering{roman} \setcounter{page}{3}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% Dedication page %%%%%%%%%%%%%%%%%%
+
+\chapter*{}
+\addcontentsline{toc}{chapter}{DEDICATION}
+\vspace{7mm}
+\vspace*{\fill}
+\begin{center}
+\input{tex/dedication}
+\end{center}
+\vspace*{\fill}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%% Acknowledgements page %%%%%%%%%%%%%%%
+
+\chapter*{ACKNOWLEDGEMENTS}
+\label{ch:Acknowledgements}
+\addcontentsline{toc}{chapter}{ACKNOWLEDGEMENTS}
+\vspace{7mm}
+\input{tex/acknowledgements}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%% Table of contents %%%%%%%%%%%%%%%%%
+
+\begin{singlespace}
+\tableofcontents
+\end{singlespace}
+
+\clearpage
+\addcontentsline{toc}{chapter}{\listtablename}
+\listoftables
+
+\clearpage
+\addcontentsline{toc}{chapter}{\listfigurename}
+\listoffigures
+
+\clearpage
+\addcontentsline{toc}{chapter}{\nomname}
+\input{tex/abbreviations}
+\printnomenclature
+
+\clearpage
+\normalsize
+\mySpacing
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\cftlocalchange{toc}{450pt}{0cm} %see tocloft documentation
+\cftaddtitleline{toc}{chapter}{Chapter}{}
+\cftlocalchange{toc}{1.55em}{2.55em}

@@ -1,0 +1,29 @@
+# Paper 1
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, fig.width = 6)
+```
+
+
+Here is an example citation [@example]. Here is an example abbreviation: \nomenclature{LDM}{Lucy D'Agostino McGowan}.
+
+Here is an example table.
+
+```{r}
+library(tidyverse)
+starwars %>%
+  filter(species == "Wookiee") %>%
+  select(name, homeworld) %>%
+  kableExtra::kable("latex", caption = "Wookiees and their homeworld.", booktabs = TRUE) %>%
+  kableExtra::kable_styling(latex_options = "hold_position")
+```
+
+Here is an example plot.
+
+```{r, fig.pos = "h", fig.cap = "Starwars distribution of heights by species"}
+starwars %>%
+  filter(species %in% c("Human", "Droid", "Wookiee")) %>%
+  ggplot(aes(x = species, y = height, fill = species)) + 
+  geom_boxplot()
+```
+

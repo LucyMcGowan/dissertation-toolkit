@@ -1,0 +1,14 @@
+This is makeindex, version 2.15 [TeX Live 2018] (kpathsea + Thai support).
+Scanning style file /Users/lucymcgowan/Library/TinyTeX/texmf-dist/makeindex/nomencl/nomencl.ist.......
+** Input style error (file = /Users/lucymcgowan/Library/TinyTeX/texmf-dist/makeindex/nomencl/nomencl.ist, line = 70):
+   -- Unknown specifier lethead_prefix.
+** Input style error (file = /Users/lucymcgowan/Library/TinyTeX/texmf-dist/makeindex/nomencl/nomencl.ist, line = 71):
+   -- Unknown specifier lethead_suffix.
+** Input style error (file = /Users/lucymcgowan/Library/TinyTeX/texmf-dist/makeindex/nomencl/nomencl.ist, line = 72):
+   -- Unknown specifier lethead_flag.
+...done (10 attributes redefined, 3 ignored).
+Scanning input file _main.nlo....done (1 entries accepted, 0 rejected).
+Sorting entries...done (0 comparisons).
+Generating output file _main.nls....done (8 lines written, 0 warnings).
+Output written in _main.nls.
+Transcript written in _main.ilg.
