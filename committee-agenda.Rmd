@@ -1,0 +1,46 @@
+---
+title: "Committee Meeting Agenda"
+date: "Date"
+output: pdf_document
+header-includes:
+  - \usepackage{pgffor, ifthen}
+---
+
+\newcommand{\notes}[3][\empty]{%
+	\foreach \n in {1,...,#2}{%
+		\ifthenelse{\equal{#1}{\empty}}
+			{\rule{#3}{0.5pt}\\}
+			{\rule{#3}{0.5pt}\vspace{#1}\\}
+		}
+}
+
+## Attendees
+
+* Committee member 1
+* Committee member 2
+* Committee member 3
+* Committee member 4
+
+## Outline
+
+### Follow up
+
+* _Put any follow up from the previous meeting here._
+
+### New developments
+
+* _Summarize the "summary paragraph" you sent out prior to the meeting in a few bullets to discuss._
+
+### Defense timeline
+
+* _Summarize your defense timeline based on the new updates._
+
+### Next steps
+
+* _This is a reminder to discuss next steps at the end of the meeting. Be sure to record specific action items discussed in the meeting in the **Notes** section below._
+
+## Notes
+
+_This is a space for recording what was discussed in the meeting._
+
+\notes[10pt]{8}{\textwidth}

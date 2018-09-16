@@ -1,0 +1,48 @@
+---
+title: "Committee Meeting Minutes"
+date: "Date"
+output: pdf_document
+urlcolor: blue
+---
+
+## Attendees
+
+* Committee member 1
+* Committee member 2
+* Committee member 3
+* Committee member 4
+
+# _Minutes compiled by [insert your name here]._
+
+## Minutes
+
+### Follow up
+
+* _Put any follow up from the previous meeting here._
+
+### New developments
+
+* _Summarize the "summary paragraph" you sent out prior to the meeting in a few bullets to discuss._
+
+### Defense timeline
+
+* _Summarize your defense timeline based on the new updates._
+
+### Next steps
+
+* _Write out specific action items discussed in the meeting._
+
+We discussed the following next steps.
+
+$\square$ Action item 1  
+$\square$ Action item 2  
+$\square$ Action item 3  
+$\square$ Action item 4
+
+# Signed off and approved by [_committee members' names_] via email.
+
+---
+
+# Next committee meeting is scheduled for xx
+
+---
